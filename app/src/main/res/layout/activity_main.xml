@@ -1,76 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable name="myName" type="id.ajikamaludin.coba.MyName"></variable>
+    </data>
 
-    <TextView
-        android:id="@+id/name_text"
-        style="@style/NameStyle"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto"
-        android:labelFor="@id/nickname_edit"
-        android:text="@string/aji_kamaludin"
-        android:textAlignment="center" />
-
-    <EditText
-        android:id="@+id/nickname_edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:ems="10"
-        android:inputType="textPersonName"
-        style="@style/NameStyle"
-        android:hint="@string/what_is_your_nick_name" />
-
-    <Button
-        android:id="@+id/done_button"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="@dimen/layout_margin"
-        android:fontFamily="@font/roboto"
-        android:text="@string/done" />
-
-    <TextView
-        android:id="@+id/nickname_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/NameStyle"
-        android:text=""
-        android:textAlignment="center"
-        android:visibility="gone"
-        android:background="@color/colorAccent"
-        android:paddingBottom="@dimen/small_padding"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/layout_padding"
-        android:src="@android:drawable/star_big_on"
-        android:contentDescription="@string/this_description" />
-
-    <ScrollView
-        android:id="@+id/bio_scroll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
         <TextView
+            android:id="@+id/name_text"
+            style="@style/NameStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lineSpacingMultiplier="1.2"
-            android:paddingStart="@dimen/layout_padding"
-            android:paddingEnd="@dimen/layout_padding"
-            android:paddingTop="@dimen/layout_padding"
-            android:text="@string/bio"
-            android:drawablePadding="@dimen/small_padding"
-            android:drawableBottom="@android:drawable/star_big_on"/>
+            android:fontFamily="@font/roboto"
+            android:labelFor="@id/nickname_edit"
+            android:text="@={myName.name}"
+            android:textAlignment="center" />
 
-    </ScrollView>
-</LinearLayout>
+        <EditText
+            android:id="@+id/nickname_edit"
+            style="@style/NameStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/what_is_your_nick_name"
+            android:inputType="textPersonName"
+            android:text="" />
+
+        <Button
+            android:id="@+id/done_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/layout_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/done" />
+
+        <TextView
+            android:id="@+id/nickname_text"
+            style="@style/NameStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:paddingBottom="@dimen/small_padding"
+            android:text="@={myName.nickname}"
+            android:textAlignment="center"
+            android:visibility="gone" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/this_description"
+            android:padding="@dimen/layout_padding"
+            android:src="@android:drawable/star_big_on" />
+
+        <ScrollView
+            android:id="@+id/bio_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="@android:drawable/star_big_on"
+                android:drawablePadding="@dimen/small_padding"
+                android:lineSpacingMultiplier="1.2"
+                android:paddingStart="@dimen/layout_padding"
+                android:paddingTop="@dimen/layout_padding"
+                android:paddingEnd="@dimen/layout_padding"
+                android:text="@string/bio" />
+
+        </ScrollView>
+    </LinearLayout>
+</layout>
